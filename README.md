@@ -12,7 +12,7 @@ Compared with [single second-order pooling network](https://github.com/jiangtaox
 Besides, in order to solve the high time-consuming brought by multiple second-order pooling modules, a sparsity-constrained gating module is introduced.
 GM-SOP is evaluated on two large scale datasets and it is superior to its counterparts, achieving very competitive performance.
 
-### Citation
+## Citation
 
 	@InProceedings{Wang_2018_NeurIPS,
 		author = {Wang, Qilong and Gao, Zilin and Xie, Jiangtao and Zuo, Wangmeng and Li, Peihua},
@@ -21,7 +21,7 @@ GM-SOP is evaluated on two large scale datasets and it is superior to its counte
 		year = {2018}
 	}
 	
-### DataSets
+## DataSets
 
 We evaluated our method on two large-scale datasets: 
 
@@ -30,21 +30,21 @@ We evaluated our method on two large-scale datasets:
 Downsampled [Places-365](http://places2.csail.mit.edu/PAMI_places.pdf) 
 (we downsample all images to 100x100 by imresize function in matlab with bicubic interpolation method)
 
-### Environment
+## Environment
 
 Our code is implemented with [matconvnet](http://www.vlfeat.org/matconvnet/) toolkit, tested on 1.0-beta25 with Ubuntu 16.04, cuda 10.0.
 Considering the dataset is loaded into RAM when the code runs, the workstation should provide available free space as much as the dataset occupied. (Downsampled ImageNet is 13G, Downsampled Places-365 is 45G)
 
-### Results
+## Results
 
-Downsampled ImageNet:
-
-	model|top-1|top-5
-	:---:|:---:|:---:
-	[VGG-16](http://www.vlfeat.org/matconvnet/pretrained/)|[28.5%](http://www.vlfeat.org/matconvnet/pretrained/)|[9.9%](http://www.vlfeat.org/matconvnet/pretrained/)
-	ResNet-50|24.7%|7.8%
-	ResNet-101|23.6%|7.1%
-	ResNet-152|23.0%|6.7%
+### Downsampled ImageNet error (%)
+| Network             | GFLOPS | Top-1 Error |  Download   |
+| ------------------- | ------ | ----------- | ------------|
+| ResNet-50 (1x64d)   |  ~4.1  |  23.9        | [Original ResNet-50](https://github.com/facebook/fb.resnet.torch/tree/master/pretrained)       |
+| ResNeXt-50 (32x4d)  |  ~4.1  |  22.2        | [Download (191MB)](https://s3.amazonaws.com/resnext/imagenet_models/resnext_50_32x4d.t7)       |
+| ResNet-101 (1x64d)  |  ~7.8  |  22.0        | [Original ResNet-101](https://github.com/facebook/fb.resnet.torch/tree/master/pretrained)      |
+| ResNeXt-101 (32x4d) |  ~7.8  |  21.2        | [Download (338MB)](https://s3.amazonaws.com/resnext/imagenet_models/resnext_101_32x4d.t7)      |
+| ResNeXt-101 (64x4d) |  ~15.6 |  20.4        | [Download (638MB)](https://s3.amazonaws.com/resnext/imagenet_models/resnext_101_64x4d.t7)       |
 
 ## Acknowledgments
 
