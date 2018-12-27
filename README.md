@@ -38,10 +38,11 @@ Considering the dataset is loaded into RAM when the code runs, the workstation s
 ## Results
 
 ### Downsampled ImageNet error (%)
+
 |          Network         | Parameters |  Dimension | Top-1 error / Top-5 error (%)|
 | -------------------------| ---------- | ---------- | -----------------------------|
 | ResNet-18-512d           |    1.3M    |    512     |        49.08/24.25           |
-| ResNet-50-512d           |    2.8M    |    512     |        41.79/18.30           |
+| ResNet-18-8256d          |    ----    |    8256    |        47.29/-----           |
 | ResNet-50-8256d          |  11.6M     |    8256    |        41.42/18.14           |
 | GM-GAP-16-8 + ResNet-18  |   2.3M     |    512     |        42.37/18.82           |
 | GM-GAP-16-8 + ResNet-18* |   2.3M     |    512     |        40.03/17.91           |
@@ -49,6 +50,21 @@ Considering the dataset is loaded into RAM when the code runs, the workstation s
 | GM-SOP-16-8 + ResNet-18  |  10.3M     |    8256    |        38.21/17.01           | 
 | GM-SOP-16-8 + ResNet-50  |  11.9M     |    8256    |        35.73/14.96           | 
 | GM-SOP-16-8 + WRN-36-2   |  15.7M     |    8256    |        32.33/12.35           | 
+
+*denotes double number of training images including original images and their horizontal flip ones
+
+
+### Downsampled Places-365 error (%)
+
+|       Network     | Dimension | Top-1 error (%) | Top-5 error (%)|
+| ------------------| --------- | --------------- | ---------------|
+| ResNet-18-512d    |    512    |      49.96      |    19.19       |
+| GM-GAP-16-8       |    512    |      48.07      |    17.84       |
+| ResNet-18-8256d   |   8256    |      49.99      |    19.32       |
+| SR-SOP            |   8256    |      48.11      |    18.01       |
+| Parametric SR-SOP |   8256    |      47.48      |    17.52       |
+| GM-SOP-16-8       |   8256    |      47.18      |    17.02       | 
+
 
 ## Acknowledgments
 
