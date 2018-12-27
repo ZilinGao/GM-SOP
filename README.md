@@ -38,17 +38,17 @@ Considering the dataset is loaded into RAM when the code runs, the workstation s
 ## Results
 
 ### Downsampled ImageNet error (%)
-|          Network         | Number of Parameters | Dimension of Representations | Top-1 error / Top-5 error (%)|
-| -------------------------| -------------------- | ---------------------------- | -----------------------------|
-| ResNet-18-512d           |          1.3M        |              512             |        49.08/24.25           |
-| ResNet-50-512d           |          2.8M        |              512             |        41.79/18.30           |
-| ResNet-50-8256d          |         11.6M        |             8256             |        41.42/18.14           |
-| GM-GAP-16-8 + ResNet-18  |          2.3M        |              512             |        42.37/18.82           |
-| GM-GAP-16-8 + ResNet-18* |          2.3M        |              512             |        40.03/17.91           |
-| GM-GAP-16-8 + WRN-36-2   |          8.7M        |              512             |        35.97/14.41           | 
-| GM-SOP-16-8 + ResNet-18  |         10.3M        |             8256             |        38.21/17.01           | 
-| GM-SOP-16-8 + ResNet-50  |         11.9M        |             8256             |        35.73/14.96           | 
-| GM-SOP-16-8 + WRN-36-2   |         15.7M        |             8256             |        32.33/12.35           | 
+|          Network         | Parameters |  Dimension | Top-1 error / Top-5 error (%)|
+| -------------------------| ---------- | ---------- | -----------------------------|
+| ResNet-18-512d           |    1.3M    |    512     |        49.08/24.25           |
+| ResNet-50-512d           |    2.8M    |    512     |        41.79/18.30           |
+| ResNet-50-8256d          |  11.6M     |    8256    |        41.42/18.14           |
+| GM-GAP-16-8 + ResNet-18  |   2.3M     |    512     |        42.37/18.82           |
+| GM-GAP-16-8 + ResNet-18* |   2.3M     |    512     |        40.03/17.91           |
+| GM-GAP-16-8 + WRN-36-2   |   8.7M     |    512     |        35.97/14.41           | 
+| GM-SOP-16-8 + ResNet-18  |  10.3M     |    8256    |        38.21/17.01           | 
+| GM-SOP-16-8 + ResNet-50  |  11.9M     |    8256    |        35.73/14.96           | 
+| GM-SOP-16-8 + WRN-36-2   |  15.7M     |    8256    |        32.33/12.35           | 
 
 ## Acknowledgments
 
