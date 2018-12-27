@@ -25,7 +25,7 @@ GM-SOP is evaluated on two large scale datasets and it is superior to its counte
 
 We evaluated our method on two large-scale datasets: 
 
-[Downsampled ImageNet] (https://arxiv.org/pdf/1707.08819.pdf) (input size 64x64)
+[Downsampled ImageNet](https://arxiv.org/pdf/1707.08819.pdf) (input size 64x64)
 
 Downsampled [Places-365](http://places2.csail.mit.edu/PAMI_places.pdf) 
 (we downsample all images to 100x100 by imresize function in matlab with bicubic interpolation method)
@@ -38,9 +38,9 @@ Considering the dataset is loaded into RAM when the code runs, the workstation s
 ## Results
 
 ### Downsampled ImageNet error (%)
-| Network             | GFLOPS | Top-1 Error |  Download   |
+| Network             | Number of Parameters | Dimension of Representations |  Top-1 error / Top-5 error (%)   |
 | ------------------- | ------ | ----------- | ------------|
-| ResNet-50 (1x64d)   |  ~4.1  |  23.9        | [Original ResNet-50](https://github.com/facebook/fb.resnet.torch/tree/master/pretrained)       |
+| ResNet-18-512d   |  1.3M  |  512        | 49.08/24.25|
 | ResNeXt-50 (32x4d)  |  ~4.1  |  22.2        | [Download (191MB)](https://s3.amazonaws.com/resnext/imagenet_models/resnext_50_32x4d.t7)       |
 | ResNet-101 (1x64d)  |  ~7.8  |  22.0        | [Original ResNet-101](https://github.com/facebook/fb.resnet.torch/tree/master/pretrained)      |
 | ResNeXt-101 (32x4d) |  ~7.8  |  21.2        | [Download (338MB)](https://s3.amazonaws.com/resnext/imagenet_models/resnext_101_32x4d.t7)      |
