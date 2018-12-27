@@ -8,7 +8,7 @@ This is an implementation of GM-SOP([paper](https://papers.nips.cc/paper/7403-gl
 
 We propose a global gated mixture second-order pooling network(GM-SOP). 
 Our GM-SOP embeds multiple second-order pooling module at the end of CNN which can be trained in an end-to-end manner. 
-Compared with [single second-order pooling module](https://github.com/jiangtaoxie/MPN-COV) , GM-SOP break the unimodal distribution assumption.
+Compared with [single second-order pooling network](https://github.com/jiangtaoxie/MPN-COV) , GM-SOP break the unimodal distribution assumption.
 Besides, in order to solve the high time-consuming brought by multiple second-order pooling modules, a sparsity-constrained gating module is introduced.
 GM-SOP is evaluated on two large scale datasets and it is superior to its counterparts, achieving very competitive performance.
 
@@ -23,7 +23,12 @@ GM-SOP is evaluated on two large scale datasets and it is superior to its counte
 	
 ### DataSets
 
+We evaluated our method on two large-scale datasets: 
 
+[Downsampled ImageNet] (https://arxiv.org/pdf/1707.08819.pdf) (input size 64x64)
+
+Downsampled [Places-365](http://places2.csail.mit.edu/PAMI_places.pdf) 
+(we downsample all images to 100x100 by imresize function in matlab with bicubic interpolation method)
 
 ### Environment
 
@@ -32,6 +37,14 @@ Considering the dataset is loaded into RAM when the code runs, the workstation s
 
 ### Results
 
+Downsampled ImageNet:
+
+	model|top-1|top-5
+	:---:|:---:|:---:
+	[VGG-16](http://www.vlfeat.org/matconvnet/pretrained/)|[28.5%](http://www.vlfeat.org/matconvnet/pretrained/)|[9.9%](http://www.vlfeat.org/matconvnet/pretrained/)
+	ResNet-50|24.7%|7.8%
+	ResNet-101|23.6%|7.1%
+	ResNet-152|23.0%|6.7%
 
 ## Acknowledgments
 
