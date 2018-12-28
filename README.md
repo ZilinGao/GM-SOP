@@ -25,10 +25,10 @@ GM-SOP is evaluated on two large scale datasets and it is superior to its counte
 
 We evaluated our method on two large-scale datasets: 
 
-[Downsampled ImageNet](https://arxiv.org/pdf/1707.08819.pdf) (input size 64x64)
+* [Downsampled ImageNet](https://arxiv.org/pdf/1707.08819.pdf) (input size 64x64)
 
-Downsampled [Places-365](http://places2.csail.mit.edu/PAMI_places.pdf) 
-(we downsample all images to 100x100 by imresize function in matlab with bicubic interpolation method)
+* Downsampled [Places-365](http://places2.csail.mit.edu/PAMI_places.pdf) 
+  (we downsample all images to 100x100 by imresize function in matlab with bicubic interpolation method)
 
 ## Environment
 
@@ -40,10 +40,10 @@ Considering the dataset is loaded into RAM when the code runs, the workstation s
 ### Downsampled ImageNet error (%)
 
 |          Network         | Parameters |  Dimension | Top-1 error / Top-5 error (%)|
-| -------------------------| ---------- | ---------- | -----------------------------|
+|:-------------------------|:----------:|:----------:|:----------------------------:|
 | ResNet-18-512d           |    1.3M    |    512     |        49.08/24.25           |
-| ResNet-18-8256d          |    ----    |    8256    |        47.29/-----           |
-| ResNet-50-8256d          |  11.6M     |    8256    |        41.42/18.14           |
+| ResNet-18-8256d          |   10.0M    |    8256    |        47.29/-----           |
+| ResNet-50-8256d          |   11.6M    |    8256    |        41.42/18.14           |
 | GM-GAP-16-8 + ResNet-18  |   2.3M     |    512     |        42.37/18.82           |
 | GM-GAP-16-8 + ResNet-18* |   2.3M     |    512     |        40.03/17.91           |
 | GM-GAP-16-8 + WRN-36-2   |   8.7M     |    512     |        35.97/14.41           | 
@@ -51,13 +51,13 @@ Considering the dataset is loaded into RAM when the code runs, the workstation s
 | GM-SOP-16-8 + ResNet-50  |  11.9M     |    8256    |        35.73/14.96           | 
 | GM-SOP-16-8 + WRN-36-2   |  15.7M     |    8256    |        32.33/12.35           | 
 
-*denotes double number of training images including original images and their horizontal flip ones
+*denotes double number of training images including original images AND their horizontal flip ones
 
 
 ### Downsampled Places-365 error (%)
 
 |       Network     | Dimension | Top-1 error (%) | Top-5 error (%)|
-| ------------------| --------- | --------------- | ---------------|
+|:------------------|:---------:|:---------------:|:--------------:|
 | ResNet-18-512d    |    512    |      49.96      |    19.19       |
 | GM-GAP-16-8       |    512    |      48.07      |    17.84       |
 | ResNet-18-8256d   |   8256    |      49.99      |    19.32       |
