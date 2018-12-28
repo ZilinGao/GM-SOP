@@ -27,10 +27,10 @@ We evaluated our method on two large-scale datasets:
 
   |Dataset                                                                   |Image Size|Training Set|Validation Set| Class |Download |
   |:------------------------------------------------------------------------:|:--------:|:----------:|:------------:|:-----:|:-------:|
-  |[Downsampled ImageNet-1K](https://arxiv.org/pdf/1707.08819.pdf)           |   64x64  |    1.28M   |      50K     |  1000 | Google Drive \| BaiduYun      |
+  |[Downsampled ImageNet-1K](https://arxiv.org/pdf/1707.08819.pdf)           |   64x64  |    1.28M   |      50K     |  1000 | Google Drive* \| BaiduYun\*      |
   | Downsampled [Places-365](http://places2.csail.mit.edu/PAMI_places.pdf) **|  100x100 |    1.8M    |     182K     |   365 |\-\-\-       | 
   
-  *Work provide the dataset with several partial extracted files, we convert it into mat format for convenient loading in matlab.
+  *[Original Work](https://arxiv.org/pdf/1707.08819.pdf) provide the dataset with several partial extracted files, we convert it into one .mat file for convenient loading in matlab.
   **We downsample all images to 100x100 by _imresize_ function in matlab with _bicubic_ interpolation method.
 
 ## Environment & Machine Configuration
@@ -47,12 +47,11 @@ GPU: single GTX 1080Ti
 
 Tips: Considering the whole dataset is loaded into RAM when the code runs, the workstation MUST provide available free space as much as the dataset occupied at least. (Downsampled ImageNet is 13G, Downsampled Places-365 is 45G)
 For the same reason, if you want to run with multiple GPUs, RAM should provide dataset_space x GPU_num free space. 
-<<<<<<< HEAD
 If the RAM is not allowed, you can also restore the data as images in disk and read them from disk during each mini-batch(like most image reading process).
 
 ## Start up
 
-The code MUST be compiled by executing vl_compilenn in matlab folder, please see [here](http://www.vlfeat.org/matconvnet/install/) for details. The main function is cnn_imagenet64. 
+The code MUST be compiled by executing vl_compilenn in matlab folder, please see [here](http://www.vlfeat.org/matconvnet/install/) for details. The main function is example/GM/cnn_imagenet64.m . 
 Considering the long data reading process(about above 1min), we provide a tiny fake data mat file: examples/GM/imdb.mat as default setting for quick debug. 
 If you want to train model, please modify the dataset file path by changing opts.imdbPath in function cnn_imagenet64.
 
