@@ -6,9 +6,9 @@ This is an implementation of GM-SOP([paper](https://papers.nips.cc/paper/7403-gl
 
 ## Introduction
 
-We propose a global gated mixture second-order pooling network(GM-SOP). 
-Our GM-SOP embeds multiple second-order pooling module at the end of CNN which can be trained in an end-to-end manner. 
-Compared with [single second-order pooling network](https://github.com/jiangtaoxie/MPN-COV) , GM-SOP break the unimodal distribution assumption.
+We propose a novel global gated mixture second-order pooling network(GM-SOP). 
+Our GM-SOP embeds multiple second-order pooling modules at the end of CNN which can be trained in an end-to-end manner. 
+Compared with [single second-order pooling network](https://github.com/jiangtaoxie/MPN-COV), GM-SOP break the unimodal distribution assumption and has the potential of capturing more abundant image feature.
 Besides, in order to solve the high time-consuming brought by multiple second-order pooling modules, a sparsity-constrained gating module is introduced.
 GM-SOP is evaluated on two large scale datasets and it is superior to its counterparts, achieving very competitive performance.
 
@@ -21,7 +21,7 @@ GM-SOP is evaluated on two large scale datasets and it is superior to its counte
 		year = {2018}
 	}
 	
-## DataSets
+## Datasets
 
 We evaluated our method on two large-scale datasets: 
 
@@ -30,7 +30,8 @@ We evaluated our method on two large-scale datasets:
   |[Downsampled ImageNet-1K](https://arxiv.org/pdf/1707.08819.pdf)           |   64x64  |    1.28M   |      50K     |  1000 | Google Drive* \| BaiduYun\*      |
   | Downsampled [Places-365](http://places2.csail.mit.edu/PAMI_places.pdf) **|  100x100 |    1.8M    |     182K     |   365 |\-\-\-       | 
   
-  *[Original Work](https://arxiv.org/pdf/1707.08819.pdf) provide the dataset with several partial extracted files, we convert it into one .mat file for convenient loading in matlab.
+  *[Original Work](https://arxiv.org/pdf/1707.08819.pdf) provide the dataset with several partial extracted files, we convert it into one .mat file for conveniently loaded by matlab.
+  
   **We downsample all images to 100x100 by _imresize_ function in matlab with _bicubic_ interpolation method.
 
 ## Environment & Machine Configuration
@@ -47,13 +48,13 @@ GPU: single GTX 1080Ti
 
 Tips: Considering the whole dataset is loaded into RAM when the code runs, the workstation MUST provide available free space as much as the dataset occupied at least. (Downsampled ImageNet is 13G, Downsampled Places-365 is 45G)
 For the same reason, if you want to run with multiple GPUs, RAM should provide dataset_space x GPU_num free space. 
-If the RAM is not allowed, you can also restore the data as images in disk and read them from disk during each mini-batch(like most image reading process).
+If the RAM is not allowed, you can also restore the data in form of image files in disk and read them from disk during each mini-batch(like most image reading process).
 
 ## Start up
 
 The code MUST be compiled by executing vl_compilenn in matlab folder, please see [here](http://www.vlfeat.org/matconvnet/install/) for details. The main function is example/GM/cnn_imagenet64.m . 
 Considering the long data reading process(about above 1min), we provide a tiny fake data mat file: examples/GM/imdb.mat as default setting for quick debug. 
-If you want to train model, please modify the dataset file path by changing opts.imdbPath in function cnn_imagenet64.
+If you want to train model, please modify the dataset file path by changing _opts.imdbPath_ in function _cnn_imagenet64_.
 
 
 ## Results
@@ -94,3 +95,6 @@ If you want to train model, please modify the dataset file path by changing opts
 [iSQRT-COV](http://openaccess.thecvf.com/content_cvpr_2018/papers/Li_Towards_Faster_Training_CVPR_2018_paper.pdf) and thank them for providing packaged high-efficiency code.
 * We would like to thank MatConvNet team for developing MatConvNet toolbox.
 
+## Contact Information
+
+If you have any suggestion or question, you can leave a message here or contact us directly: gzl@mail.dlut.edu.cn . Thanks for your attention!
