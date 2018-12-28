@@ -17,7 +17,11 @@ GM-SOP is evaluated on two large scale datasets and it is superior to its counte
 	@InProceedings{Wang_2018_NeurIPS,
 		author = {Wang, Qilong and Gao, Zilin and Xie, Jiangtao and Zuo, Wangmeng and Li, Peihua},
 		title = {Global Gated Mixture of Second-order Pooling for Improving Deep Convolutional Neural Networks},
+<<<<<<< HEAD
 		journal = {Neural Information Processing Systems (NeurIPS)},
+=======
+		journal = {Advances in Neural Information Processing Systems (NeurIPS)},
+>>>>>>> 971330b9e80b4c8e76f7bbfc141e40e8b962bb01
 		year = {2018}
 	}
 	
@@ -25,6 +29,7 @@ GM-SOP is evaluated on two large scale datasets and it is superior to its counte
 
 We evaluated our method on two large-scale datasets: 
 
+<<<<<<< HEAD
   |Dataset                                                                   |Image Size|Training Set|Validation Set| Class |Download |
   |:------------------------------------------------------------------------:|:--------:|:----------:|:------------:|:-----:|:-------:|
   |[Downsampled ImageNet-1K](https://arxiv.org/pdf/1707.08819.pdf)           |   64x64  |    1.28M   |      50K     |  1000 | Google Drive \| BaiduYun      |
@@ -33,6 +38,13 @@ We evaluated our method on two large-scale datasets:
   *Work provide the dataset with several partial extracted files, we convert it into mat format for convenient loading in matlab.
   **We downsample all images to 100x100 by _imresize_ function in matlab with _bicubic_ interpolation method.
   
+=======
+* [Downsampled ImageNet](https://arxiv.org/pdf/1707.08819.pdf) (input size 64x64)
+
+* Downsampled [Places-365](http://places2.csail.mit.edu/PAMI_places.pdf) 
+  (we downsample all images to 100x100 by imresize function in matlab with bicubic interpolation method)
+
+>>>>>>> 971330b9e80b4c8e76f7bbfc141e40e8b962bb01
 ## Environment & Machine Configuration
 
 toolkit: [matconvnet](http://www.vlfeat.org/matconvnet/) 1.0-beta25
@@ -47,6 +59,7 @@ GPU: single GTX 1080Ti
 
 Tips: Considering the whole dataset is loaded into RAM when the code runs, the workstation MUST provide available free space as much as the dataset occupied at least. (Downsampled ImageNet is 13G, Downsampled Places-365 is 45G)
 For the same reason, if you want to run with multiple GPUs, RAM should provide dataset_space x GPU_num free space. 
+<<<<<<< HEAD
 If the RAM is not allowed, you can also restore the data as images in disk and read them from disk during each mini-batch(like most image reading process).
 
 ## Start up
@@ -54,6 +67,15 @@ If the RAM is not allowed, you can also restore the data as images in disk and r
 The code MUST be compiled by executing vl_compilenn in matlab folder, please see [here](http://www.vlfeat.org/matconvnet/install/) for details. The main function is cnn_imagenet64. 
 Considering the long data reading process(about above 1min), we provide a tiny fake data mat file: examples/GM/imdb.mat as default setting for quick debug. 
 If you want to train model, please modify the dataset file path by changing opts.imdbPath in function cnn_imagenet64.
+=======
+If the RAM is not allowed, you can also restore the data as images in disk and read them from disk in each mini-batch(like most image reading process).
+
+## start up
+
+The code MUST be compiled by executing vl_compilenn in matlab folder, please see [here](http://www.vlfeat.org/matconvnet/install/) for details. The main function is cnn_imagenet64. 
+Considering the long data reading process(about above 1min), we provide a tiny fake data mat file: examples/GM/imdb.mat as default setting for quick debug. 
+If you want to train model, please modify the dataset file path by changing opts.imdbPath in cnn_imagenet64.
+>>>>>>> 971330b9e80b4c8e76f7bbfc141e40e8b962bb01
 
 
 ## Results
