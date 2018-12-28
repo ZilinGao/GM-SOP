@@ -30,19 +30,38 @@ We evaluated our method on two large-scale datasets:
 * Downsampled [Places-365](http://places2.csail.mit.edu/PAMI_places.pdf) 
   (we downsample all images to 100x100 by imresize function in matlab with bicubic interpolation method)
 
-## Environment
+## Environment & Machine Configuration
 
-Our code is implemented with [matconvnet](http://www.vlfeat.org/matconvnet/) toolkit, tested on 1.0-beta25 with Ubuntu 16.04, cuda 10.0.
-Considering the dataset is loaded into RAM when the code runs, the workstation should provide available free space as much as the dataset occupied. (Downsampled ImageNet is 13G, Downsampled Places-365 is 45G)
+toolkit: [matconvnet](http://www.vlfeat.org/matconvnet/) 1.0-beta25
+
+matlab: R2016b
+
+system: Ubuntu 16.04
+
+cuda: 9.2
+
+GPU: single GTX 1080Ti
+
+Tips: Considering the whole dataset is loaded into RAM when the code runs, the workstation MUST provide available free space as much as the dataset occupied at least. (Downsampled ImageNet is 13G, Downsampled Places-365 is 45G)
+For the same reason, if you want to run with multiple GPUs, RAM should provide dataset_space x GPU_num free space. 
+If the RAM is not allowed, you can also restore the data as images in disk and read them from disk in each mini-batch(like most image reading process).
+
+## start up
+
+The code MUST be compiled by executing vl_compilenn in matlab folder, please see [here](http://www.vlfeat.org/matconvnet/install/) for details. The main function is cnn_imagenet64. 
+Considering the long data reading process(about above 1min), we provide a tiny fake data mat file: examples/GM/imdb.mat as default setting for quick debug. 
+If you want to train model, please modify the dataset file path by changing opts.imdbPath in cnn_imagenet64.
+
 
 ## Results
 
-### Downsampled ImageNet error (%)
+### Downsampled ImageNet-1K
 
 |          Network         | Parameters |  Dimension | Top-1 error / Top-5 error (%)|
 |:-------------------------|:----------:|:----------:|:----------------------------:|
+| ResNet-18                |    0.9M    |    128     |        52.00/26.97           |
 | ResNet-18-512d           |    1.3M    |    512     |        49.08/24.25           |
-| ResNet-18-8256d          |   10.0M    |    8256    |        47.29/-----           |
+| ResNet-50                |    2.4M    |    128     |        43.28/19.39           |
 | ResNet-50-8256d          |   11.6M    |    8256    |        41.42/18.14           |
 | GM-GAP-16-8 + ResNet-18  |   2.3M     |    512     |        42.37/18.82           |
 | GM-GAP-16-8 + ResNet-18* |   2.3M     |    512     |        40.03/17.91           |
@@ -54,7 +73,7 @@ Considering the dataset is loaded into RAM when the code runs, the workstation s
 *denotes double number of training images including original images AND their horizontal flip ones
 
 
-### Downsampled Places-365 error (%)
+### Downsampled Places-365 
 
 |       Network     | Dimension | Top-1 error (%) | Top-5 error (%)|
 |:------------------|:---------:|:---------------:|:--------------:|
@@ -68,7 +87,7 @@ Considering the dataset is loaded into RAM when the code runs, the workstation s
 
 ## Acknowledgments
 
-* 
-* 
-* 
+* The authors thank pioneering work: [MPN-COV](http://openaccess.thecvf.com/content_ICCV_2017/papers/Li_Is_Second-Order_Information_ICCV_2017_paper.pdf),
+[iSQRT-COV](http://openaccess.thecvf.com/content_cvpr_2018/papers/Li_Towards_Faster_Training_CVPR_2018_paper.pdf) and thank them for providing packaged high-efficiency code.
+* We would like to thank MatConvNet team for developing MatConvNet toolbox.
 
