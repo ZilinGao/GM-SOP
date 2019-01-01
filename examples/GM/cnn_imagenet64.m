@@ -1,15 +1,16 @@
 function [net, info] = cnn_imagenet64(varargin)
-%CNN_IMAGENET   Demonstrates training a CNN on ImageNet
-%  This demo demonstrates training the AlexNet, VGG-F, VGG-S, VGG-M,
-%  VGG-VD-16, and VGG-VD-19 architectures on ImageNet data.
-
+%CNN_IMAGENET64  The main funcion of work Global Gated Mixture of Second-order Pooling for
+% Improving Deep Convolutional Neural Networks.
+%
+% Modified on cnn_imagenet.m
+% Modified by Zilin Gao
 
 run(fullfile(fileparts(mfilename('fullpath')), ...
     '..', '..', 'matlab', 'vl_setupnn.m')) ;
 
-opts.modelType = 'WRN-36-2-GM-SOP';
-% 'ResNet18-GM-GOP' 'ResNet50-GM-SOP' 'WRN-36-2-GM-GAP' 'WRN-36-2-GM-SOP'
-
+opts.modelType = 'ResNet18-GM-GAP';
+% 'ResNet18-GM-GAP' 'ResNet18-GM-GOP' 'WRN-36-2-GM-GAP' 'WRN-36-2-GM-SOP'
+% 'ResNet18-GAP'  'ResNet18-SR-SOP'
 opts.batchNormalization = true ;
 opts.weightInitMethod = 'gaussian' ;
 opts.expDir =  fullfile(vl_rootnn, 'data');
@@ -17,9 +18,7 @@ opts.expDir =  fullfile(vl_rootnn, 'data');
 
 opts.numFetchThreads = 12 ;
 
-opts.imdbPath = fullfile('..','..','..','imdb.mat');% real imdb (with slow load process)
-% opts.imdbPath = fullfile('..','..','..','imdb_b1.mat');% partial real imdb
-% opts.imdbPath = 'imdb.mat';%fake imdb for debug(with quick load process)
+opts.imdbPath = 'imdb.mat';%fake imdb for debug(with quick load process)
 
 opts.train = struct() ;
 opts = vl_argparse(opts, varargin) ;
@@ -32,7 +31,7 @@ switch opts.modelType
         opts.topk = 8;
         opts.CM_num = 16;
         opts.loss_w = 100;
-        opts.order = 1;
+        opts.order = 1;%1:GAP  2:SOP
         opts.sectionLen = 2;% (layer = 8 * sectionLen + 2)
         opts.dropout = true;
         
@@ -41,7 +40,7 @@ switch opts.modelType
         opts.CM_num = 16;
         opts.loss_w = 100;
         opts.order = 2;
-        opts.sectionLen = 2;% (layer = 8 * sectionLen + 2)
+        opts.sectionLen = 2;
         opts.dropout = true;
         
     case 'ResNet18-GAP'
@@ -60,7 +59,7 @@ switch opts.modelType
         opts.dropout = true;
         opts.sectionLen = 4;
         
-    case 'WRN-36-2-GM-SOP' %resnet50-2nd-2080d  8/16CM
+    case 'WRN-36-2-GM-SOP'
         opts.topk = 8;
         opts.CM_num = 16;
         opts.loss_w = 100;
@@ -86,9 +85,6 @@ if exist(opts.imdbPath)
     end
 else
     error('imdb not exist in assigned path')
-    %     imdb = getImageNet64Imdb(opts.dataDir,false) ;
-    %     mkdir(opts.expDir) ;
-    %     save(opts.imdbPath, '-struct', 'imdb') ;
 end
 
 
@@ -134,7 +130,7 @@ opts.expDir = fullfile(opts.expDir ,folder_name );
 
 switch opts.networkType
     case 'simplenn', trainFn = @cnn_train ;
-    case 'dagnn', trainFn = @cnn_train_img64_dag ;
+    case 'dagnn', trainFn = @cnn_train_GM_dag ;
 end
 
 [net, info] = trainFn(net, imdb, getBatch_Img64(opts), ...

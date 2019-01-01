@@ -1,4 +1,6 @@
 classdef gating < dagnn.Layer
+%Select topk CM and normalize weight by softmax
+%created by Zilin Gao
     properties
         size = [];
         hasBias = false;
@@ -10,7 +12,7 @@ classdef gating < dagnn.Layer
     methods
                
         function forwardAdvanced(obj, layer)
-            %select topk CM and normalize weight by softmax
+            
             net = obj.net ;
             in = layer.inputIndexes ;
             out = layer.outputIndexes ;
@@ -59,10 +61,6 @@ classdef gating < dagnn.Layer
             assert(gather(~any(isnan(sfm(:)))) == 1)
             net.vars(out).value{1} = sfm ;
             net.vars(out).value{2} = CM_index;
-%             if numel(net.vars(out).value )< 6
-%                 net.vars(out).value{6} = zeros(1,obj.CM_num);
-%             end
-%             net.vars(out).value{6} = sum(sfm') + net.vars(out).value{6};
 
              net.vars(out).value{6} = sum(sfm');
             

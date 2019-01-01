@@ -1,4 +1,6 @@
 classdef Balance_loss < dagnn.ElementWise
+%Extra loss to ensure balance selection in one mini-batch
+%created by Zilin Gao
     properties
         loss_weight = 100;
         CM_num = 16 ;

@@ -1,4 +1,6 @@
-function [net,stats] = cnn_train_dag(net, imdb, getBatch, varargin)
+function [net,stats] = cnn_train_GM_dag(net, imdb, getBatch, varargin)
+%CNN_TRAIN_GM_DAG is net training function in work GM-SOP/GM-GAP 
+%    it is a modified version based on cnn_train_dag with changing the image reading process (from RAM)
 %CNN_TRAIN_DAG Demonstrates training a CNN using the DagNN wrapper
 %    CNN_TRAIN_DAG() is similar to CNN_TRAIN(), but works with
 %    the DagNN wrapper instead of the SimpleNN wrapper.

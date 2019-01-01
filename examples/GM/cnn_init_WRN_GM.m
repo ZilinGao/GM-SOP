@@ -1,5 +1,8 @@
 function net = cnn_init_WRN_GM(varargin)
-%CNN_IMAGENET_INIT_RESNET  Initialize the ResNet-50 model for ImageNet classification
+%CNN_IMAGENET_INIT_RESNET  Initialize the Wide Residual Network model 
+%for Gated Mixture Module (GM-GAP/GM-SOP)
+%It is a modified version based on cnn_init_resnet.m
+%modified by Zilin Gao
 
 opts.order = [];
 opts.sectionLen = [];

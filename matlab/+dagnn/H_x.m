@@ -1,4 +1,6 @@
 classdef H_x < dagnn.Layer
+%Prediction layers in Sparsity-constrained Gating Module
+%created by Zilin Gao
     properties
         size = [];
         hasBias = false;

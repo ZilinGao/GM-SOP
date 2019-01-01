@@ -1,5 +1,5 @@
 function net = cnn_init_resnet_baseline(varargin)
-%CNN_INIT_RESNET_BASELINE  Initialize the ResNet-50 model for ImageNet classification
+%CNN_INIT_RESNET_BASELINE  Initialize the ResNet-50 model for ImageNet64 classification
 
 opts.order = [];
 opts.sectionLen = [];

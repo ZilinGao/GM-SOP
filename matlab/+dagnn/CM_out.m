@@ -1,4 +1,6 @@
 classdef CM_out < dagnn.Layer
+%Distribute selected samples to each Component Module respectively.
+%created by Zilin Gao
     properties
         CM_num = 16;
         topk = 8;
