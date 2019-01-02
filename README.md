@@ -44,7 +44,7 @@ We evaluated our method on two large-scale datasets:
 
   |Dataset                   |Image Size|Training Set|Validation Set| Class |Download |
   |:------------------------:|:--------:|:----------:|:------------:|:-----:|:-------:|
-  |Downsampled ImageNet-1K*  |   64x64  |    1.28M   |      50K     |  1000 | [Google Drive(13G)](https://drive.google.com/open?id=1FzejoVp9rwXsYsh4EikCuKHxIVv7Vb-4)* \| [Baidu Yun(13G)](https://pan.baidu.com/s/1FwupydRfZ4hY7UnHeuv3Qw)\*      |
+  |Downsampled ImageNet-1K*  |   64x64  |    1.28M   |      50K     |  1000 | [Google Drive](https://drive.google.com/open?id=1FzejoVp9rwXsYsh4EikCuKHxIVv7Vb-4)* \| [Baidu Yun](https://pan.baidu.com/s/1FwupydRfZ4hY7UnHeuv3Qw)\*      |
   | Downsampled Places-365 **|  100x100 |    1.8M    |     182K     |   365 |----     | 
   
   *The work[[arxiv]](https://arxiv.org/pdf/1707.08819.pdf) provides a downsampled version of
@@ -82,14 +82,14 @@ If you want to train model, please download the full dataset we provide above an
 
 ### Downsampled ImageNet-1K
 
-|          Network         | Parameters |  Dimension | Top-1 error / Top-5 error (%)| Model |
-|:-------------------------|:----------:|:----------:|:----------------------------:|:-----:|
-| ResNet-18                |    0.9M    |    128     |        52.00/26.97           | ------|
-| ResNet-18-SR-SOP         |    9.0M    |    8256    |        40.32/18.94           | ------|
-| GM-GAP-16-8 + ResNet-18  |   2.3M     |    512     |        42.25/19.46           | [Google Drive](https://drive.google.com/file/d/1LK3kx5jmS2kobuU4iWhsnrDVdpNCEqH-/view) \| [Baidu Yun](https://pan.baidu.com/s/1fmmT0haaqvG2uGRqoyp8Yw)|
-| GM-GAP-16-8 + WRN-36-2   |   8.7M     |    512     |        35.97/14.41           | Coming soon!|
-| GM-SOP-16-8 + ResNet-18  |  10.3M     |    8256    |        38.21/17.01           | Coming soon!|
-| GM-SOP-16-8 + WRN-36-2   |  15.7M     |    8256    |        32.33/12.35           | Coming soon!|
+|          Network         | Param. |  Dim. | Top-1 error / Top-5 error (%)| Model |
+|:-------------------------|:------:|:----------:|:----------------------------:|:-----:|
+| ResNet-18                |  0.9M  |  128  |        52.00/26.97           | ------|
+| ResNet-18-SR-SOP         |  9.0M  | 8256  |        40.32/18.94           | ------|
+| GM-GAP-16-8 + ResNet-18  |  2.3M  | 512   |        42.25/19.46           | [Google Drive](https://drive.google.com/file/d/1LK3kx5jmS2kobuU4iWhsnrDVdpNCEqH-/view) \| [Baidu Yun](https://pan.baidu.com/s/1fmmT0haaqvG2uGRqoyp8Yw)|
+| GM-GAP-16-8 + WRN-36-2   |   8.7M | 512   |        35.97/14.41           | Coming soon!|
+| GM-SOP-16-8 + ResNet-18  |  10.3M | 8256  |        38.21/17.01           | Coming soon!|
+| GM-SOP-16-8 + WRN-36-2   |  15.7M | 8256  |        32.33/12.35           | Coming soon!|
 
 - MD5 code: 
 <br>GM-GAP-16-8 + ResNet-18: f80738566ffe9cabb7a1e88ea6c79dcf
