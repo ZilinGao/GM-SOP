@@ -42,15 +42,15 @@ GM-SOP is superior to its counterparts and achieves very competitive performance
 
 We evaluated our method on two large-scale datasets: 
 
-  |Dataset                   |Image Size|Training Set|Validation Set| Class |Download |
-  |:------------------------:|:--------:|:----------:|:------------:|:-----:|:-------:|
-  |Downsampled ImageNet-1K*  |   64x64  |    1.28M   |      50K     |  1000 | [Google Drive](https://drive.google.com/open?id=1FzejoVp9rwXsYsh4EikCuKHxIVv7Vb-4)* \| [Baidu Yun](https://pan.baidu.com/s/1FwupydRfZ4hY7UnHeuv3Qw)\*      |
-  | Downsampled Places-365 **|  100x100 |    1.8M    |     182K     |   365 |----     | 
+  |Dataset                   |Image Size|Training Set|Val Set| Class |Download |
+  |:------------------------:|:--------:|:----------:|:-----:|:-----:|:-------:|
+  |Downsampled ImageNet-1K*  |   64x64  |    1.28M   |  50K  |  1000 |13G: [Google Drive](https://drive.google.com/open?id=1FzejoVp9rwXsYsh4EikCuKHxIVv7Vb-4) \| [Baidu Yun](https://pan.baidu.com/s/1FwupydRfZ4hY7UnHeuv3Qw)      |
+  | Downsampled Places-365 **|  100x100 |    1.8M    | 182K |   365 |----     | 
   
   *The work[[arxiv]](https://arxiv.org/pdf/1707.08819.pdf) provides a downsampled version of
 ImageNet-1K dataset. In this work, each image in ImageNet dataset (including both training set and validation set) is downsampled by _box sampling_ method to the size of 64x64, resulting in a downsampled ImageNet-1K dataset with same quantity samples and lower resolution. As it descripted, downsampled ImageNet-1K dataset might represent a viable alternative to the CIFAR datasets while dealing with more complex data and classes. 
 <br>Based on above work, we prepare one copy of downsampled ImageNet-1K in _.mat_ form for public use. To be specific, on each part of original downsampled ImageNet-1K dataset file, we use _unpickle_ function in python enviroment followed with _scipy.io.savemat_ to convert the original file into _.mat_ format, finally concatenate all parts into one full _.mat_ file.
-<br>MD5code: fe50ac93f74744b970b3102e14e69768
+<br>Downsampled ImageNet-1K MD5code: fe50ac93f74744b970b3102e14e69768
   
   **We downsample all images to 100x100 by _imresize_ function in matlab with _bicubic_ interpolation method.
 
@@ -68,7 +68,7 @@ system: Ubuntu 16.04
 
 RAM: 32G
 
-Tips: Considering the whole dataset is loaded into RAM when the code runs, the workstation MUST provide available free space as much as the dataset occupied at least. Downsampled ImageNet is above 13G, we use the machine equipped with 32G RAM for experiments.
+**Tips:** Considering the whole dataset is loaded into RAM when the code runs, the workstation MUST provide available free space as much as the dataset occupied at least. Downsampled ImageNet is above 13G, we use the machine equipped with 32G RAM for experiments.
 For the same reason, if you want to run with multiple GPUs, RAM should provide _dataset_space x GPU_num_ free space. 
 If the RAM is not allowed, you can also restore the data in form of image files in disk and read them from disk during each mini-batch(like most image reading process).
 
