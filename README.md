@@ -6,11 +6,28 @@ This is an implementation of GM-SOP([paper](https://papers.nips.cc/paper/7403-gl
 
 ## Introduction
 
-We propose a novel global gated mixture second-order pooling network(GM-SOP). 
-Our GM-SOP embeds multiple second-order pooling modules at the end of CNN which can be trained in an end-to-end manner. 
-Compared with [single second-order pooling network](https://github.com/jiangtaoxie/MPN-COV), GM-SOP break the unimodal distribution assumption and has the potential of capturing more abundant image feature.
-Besides, in order to solve the high time-consuming brought by multiple second-order pooling modules, a sparsity-constrained gating module is introduced.
-GM-SOP is evaluated on two large scale datasets and it is superior to its counterparts, achieving very competitive performance.
+In most of existing deep convolutional neural networks (CNNs) for classification,
+global average (first-order) pooling (GAP) has become a standard module to summarize
+activations of the last convolution layer as final representation for prediction.
+Recent researches show integration of higher-order pooling (HOP) methods clearly
+improves performance of deep CNNs. However, both GAP and existing HOP
+methods assume unimodal distributions, which cannot fully capture statistics of
+convolutional activations, limiting representation ability of deep CNNs, especially
+for samples with complex contents. To overcome the above limitation, this paper
+proposes a global Gated Mixture of Second-order Pooling (GM-SOP) method to
+further improve representation ability of deep CNNs. To this end, we introduce
+a sparsity-constrained gating mechanism and propose a novel parametric SOP as
+component of mixture model. Given a bank of SOP candidates, our method can
+adaptively choose Top-K(K > 1) candidates for each input sample through the
+sparsity-constrained gating module, and performs weighted sum of outputs of K
+selected candidates as representation of the sample. The proposed GM-SOP can
+flexibly accommodate a large number of personalized SOP candidates in an efficient
+way, leading to richer representations. The deep networks with our GM-SOP can be
+end-to-end trained, having potential to characterize complex, multi-modal distributions.
+The proposed method is evaluated on two large scale image benchmarks (i.e.,
+downsampled ImageNet-1K and Places365), and experimental results show our
+GM-SOP is superior to its counterparts and achieves very competitive performance.
+
 
 ## Citation
 
@@ -25,12 +42,15 @@ GM-SOP is evaluated on two large scale datasets and it is superior to its counte
 
 We evaluated our method on two large-scale datasets: 
 
-  |Dataset                                                                   |Image Size|Training Set|Validation Set| Class |Download |
-  |:------------------------------------------------------------------------:|:--------:|:----------:|:------------:|:-----:|:-------:|
-  |[Downsampled ImageNet-1K](https://arxiv.org/pdf/1707.08819.pdf)           |   64x64  |    1.28M   |      50K     |  1000 | Google Drive* \| BaiduYun\*      |
-  | Downsampled [Places-365](http://places2.csail.mit.edu/PAMI_places.pdf) **|  100x100 |    1.8M    |     182K     |   365 |\-\-\-       | 
+  |Dataset                   |Image Size|Training Set|Validation Set| Class |Download |
+  |:------------------------:|:--------:|:----------:|:------------:|:-----:|:-------:|
+  |Downsampled ImageNet-1K*  |   64x64  |    1.28M   |      50K     |  1000 | Google Drive* \| [BaiduYun(13G)](https://pan.baidu.com/s/1FwupydRfZ4hY7UnHeuv3Qw)\*      |
+  | Downsampled Places-365 **|  100x100 |    1.8M    |     182K     |   365 |----     | 
   
-  *[Original Work](https://arxiv.org/pdf/1707.08819.pdf) provide the dataset with several partial extracted files, we convert it into one .mat file for conveniently loaded by matlab.
+  *The work[[arxiv]](https://arxiv.org/pdf/1707.08819.pdf) provides a downsampled version of
+ImageNet-1K dataset. In this work, each image in ImageNet dataset (including both training set and validation set) is downsampled by _box sampling_ method to the size of 64x64, resulting in a downsampled ImageNet-1K dataset with same quantity samples and lower resolution. As it descripted, downsampled ImageNet-1K dataset might represent a viable alternative to the CIFAR datasets while dealing with more complex data and classes. 
+<br>Based on above work, we prepare one copy of downsampled ImageNet-1K in _.mat_ form for public use. To be specific, on each part of original downsampled ImageNet-1K dataset file, we use _unpickle_ function in python enviroment followed with _scipy.io.savemat_ to convert the original file into _.mat_ format, finally concatenate all parts into one full _.mat_ file.
+<br>MD5code: fe50ac93f74744b970b3102e14e69768
   
   **We downsample all images to 100x100 by _imresize_ function in matlab with _bicubic_ interpolation method.
 
@@ -40,54 +60,39 @@ toolkit: [matconvnet](http://www.vlfeat.org/matconvnet/) 1.0-beta25
 
 matlab: R2016b
 
-system: Ubuntu 16.04
-
 cuda: 9.2
 
 GPU: single GTX 1080Ti
 
-Tips: Considering the whole dataset is loaded into RAM when the code runs, the workstation MUST provide available free space as much as the dataset occupied at least. (Downsampled ImageNet is 13G, Downsampled Places-365 is 45G)
-For the same reason, if you want to run with multiple GPUs, RAM should provide dataset_space x GPU_num free space. 
+system: Ubuntu 16.04
+
+RAM: 32G
+
+Tips: Considering the whole dataset is loaded into RAM when the code runs, the workstation MUST provide available free space as much as the dataset occupied at least. Downsampled ImageNet is above 13G, we use the machine equipped with 32G RAM for experiments.
+For the same reason, if you want to run with multiple GPUs, RAM should provide _dataset_space x GPU_num_ free space. 
 If the RAM is not allowed, you can also restore the data in form of image files in disk and read them from disk during each mini-batch(like most image reading process).
 
 ## Start up
 
-The code MUST be compiled by executing vl_compilenn in matlab folder, please see [here](http://www.vlfeat.org/matconvnet/install/) for details. The main function is example/GM/cnn_imagenet64.m . 
-Considering the long data reading process(about above 1min), we provide a tiny fake data mat file: examples/GM/imdb.mat as default setting for quick debug. 
-If you want to train model, please modify the dataset file path by changing _opts.imdbPath_ in function _cnn_imagenet64_.
-
+The code MUST be compiled by executing _matlab/vl_compilenn.m_, please see [here](http://www.vlfeat.org/matconvnet/install/) for details. The main function is _example/GM/cnn_imagenet64.m_ . 
+Considering the long data reading process(about above 1min), we provide a tiny FAKE data mat file: _examples/GM/imdb.mat_ as default setting for quick debug. 
+If you want to train model, please download the full dataset we provide above and modify the dataset file path by changing _opts.imdbPath_ in function _example/GM/cnn_imagenet64.m_.
 
 ## Results
 
 ### Downsampled ImageNet-1K
 
-|          Network         | Parameters |  Dimension | Top-1 error / Top-5 error (%)|
-|:-------------------------|:----------:|:----------:|:----------------------------:|
-| ResNet-18                |    0.9M    |    128     |        52.00/26.97           |
-| ResNet-18-512d           |    1.3M    |    512     |        49.08/24.25           |
-| ResNet-50                |    2.4M    |    128     |        43.28/19.39           |
-| ResNet-50-8256d          |   11.6M    |    8256    |        41.42/18.14           |
-| GM-GAP-16-8 + ResNet-18  |   2.3M     |    512     |        42.37/18.82           |
-| GM-GAP-16-8 + ResNet-18* |   2.3M     |    512     |        40.03/17.91           |
-| GM-GAP-16-8 + WRN-36-2   |   8.7M     |    512     |        35.97/14.41           | 
-| GM-SOP-16-8 + ResNet-18  |  10.3M     |    8256    |        38.21/17.01           | 
-| GM-SOP-16-8 + ResNet-50  |  11.9M     |    8256    |        35.73/14.96           | 
-| GM-SOP-16-8 + WRN-36-2   |  15.7M     |    8256    |        32.33/12.35           | 
+|          Network         | Parameters |  Dimension | Top-1 error / Top-5 error (%)| Model |
+|:-------------------------|:----------:|:----------:|:----------------------------:|:-----:|
+| ResNet-18                |    0.9M    |    128     |        52.00/26.97           | ------|
+| ResNet-18-SR-SOP         |    9.0M    |    8256    |        40.32/18.94           | ------|
+| GM-GAP-16-8 + ResNet-18  |   2.3M     |    512     |        42.25/19.46           | Google Drive \| [BaiduYun](https://pan.baidu.com/s/1fmmT0haaqvG2uGRqoyp8Yw)|
+| GM-GAP-16-8 + WRN-36-2   |   8.7M     |    512     |        35.97/14.41           | Coming soon!|
+| GM-SOP-16-8 + ResNet-18  |  10.3M     |    8256    |        38.21/17.01           | Coming soon!|
+| GM-SOP-16-8 + WRN-36-2   |  15.7M     |    8256    |        32.33/12.35           | Coming soon!|
 
-*denotes double number of training images including original images AND their horizontal flip ones
-
-
-### Downsampled Places-365 
-
-|       Network     | Dimension | Top-1 error (%) | Top-5 error (%)|
-|:------------------|:---------:|:---------------:|:--------------:|
-| ResNet-18-512d    |    512    |      49.96      |    19.19       |
-| GM-GAP-16-8       |    512    |      48.07      |    17.84       |
-| ResNet-18-8256d   |   8256    |      49.99      |    19.32       |
-| SR-SOP            |   8256    |      48.11      |    18.01       |
-| Parametric SR-SOP |   8256    |      47.48      |    17.52       |
-| GM-SOP-16-8       |   8256    |      47.18      |    17.02       | 
-
+- MD5 code: 
+<br>GM-GAP-16-8 + ResNet-18: f80738566ffe9cabb7a1e88ea6c79dcf
 
 ## Acknowledgments
 
