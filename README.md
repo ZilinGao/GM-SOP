@@ -45,7 +45,7 @@ We evaluated our method on two large-scale datasets:
   |Dataset                   |Image Size|Training Set|Val Set| Class |Download |
   |:------------------------:|:--------:|:----------:|:-----:|:-----:|:-------:|
   |Downsampled ImageNet-1K*  |   64x64  |    1.28M   |  50K  |  1000 |13G: [Google Drive](https://drive.google.com/open?id=1FzejoVp9rwXsYsh4EikCuKHxIVv7Vb-4) \| [Baidu Yun](https://pan.baidu.com/s/1FwupydRfZ4hY7UnHeuv3Qw)      |
-  | Downsampled Places-365 **|  100x100 |    1.8M    | 182K |   365 |----     | 
+  | Downsampled Places-365 **|  100x100 |    1.8M    | 182K |   365 |45G     | 
   
   *The work[[arxiv]](https://arxiv.org/pdf/1707.08819.pdf) provides a downsampled version of
 ImageNet-1K dataset. In this work, each image in ImageNet dataset (including both training set and validation set) is downsampled by _box sampling_ method to the size of 64x64, resulting in a downsampled ImageNet-1K dataset with same quantity samples and lower resolution. As it descripted, downsampled ImageNet-1K dataset might represent a viable alternative to the CIFAR datasets while dealing with more complex data and classes. 
@@ -78,7 +78,7 @@ If the RAM is not allowed, you can also restore the data in form of image files 
 - Considering the long data reading process(about above 1min), we provide a tiny FAKE data mat file: _examples/GM/imdb.mat_ as default setting for quick debug. 
 If you want to train model, please download the full dataset we provide above and modify the dataset file path by changing _opts.imdbPath_ in function _example/GM/cnn_imagenet64.m_.
 
-## Results
+## Results and Models
 
 ### Downsampled ImageNet-1K
 
