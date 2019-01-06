@@ -88,11 +88,12 @@ If you want to train model, please download the full dataset we provide above an
 | ResNet-18-SR-SOP         |  9.0M  | 8256  |        40.32/18.94           | ------|
 | GM-GAP-16-8 + ResNet-18  |  2.3M  | 512   |        42.25/19.46           | [Google Drive](https://drive.google.com/file/d/1LK3kx5jmS2kobuU4iWhsnrDVdpNCEqH-/view) \| [Baidu Yun](https://pan.baidu.com/s/1fmmT0haaqvG2uGRqoyp8Yw)|
 | GM-GAP-16-8 + WRN-36-2   |   8.7M | 512   |        35.97/14.41           | Coming soon!|
-| GM-SOP-16-8 + ResNet-18  |  10.3M | 8256  |        38.21/17.01           | Coming soon!|
+| GM-SOP-16-8 + ResNet-18  |  10.3M | 8256  |        38.48/17.38           | [Google Drive](https://drive.google.com/open?id=1uSARyL4qqZtNsKP8FxLUlXmCkT8dLPso) \| [Baidu Yun](https://pan.baidu.com/s/1z_VllH0B2mn1OTWAb7gcGg)|
 | GM-SOP-16-8 + WRN-36-2   |  15.7M | 8256  |        32.33/12.35           | Coming soon!|
 
 - MD5 code: 
 <br>GM-GAP-16-8 + ResNet-18: f80738566ffe9cabb7a1e88ea6c79dcf
+<br>GM-SOP-16-8 + ResNet-18: 6f0db9de2cbe233278ba8acca67a6f78
 
 ## Acknowledgments
 
