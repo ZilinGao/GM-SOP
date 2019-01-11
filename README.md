@@ -85,7 +85,7 @@ If you want to train model, please download the full dataset we provide above an
 |          Network         | Param. |  Dim. | Top-1 error / Top-5 error (%)| Model |
 |:-------------------------|:------:|:----------:|:----------------------------:|:-----:|
 | ResNet-18                |  0.9M  |  128  |        52.17/27.09           | [Google Drive](https://drive.google.com/open?id=1AxNKvlZ7nQQ9L3KhfCGynomMr0txVKH9) \| [Baidu Yun](https://pan.baidu.com/s/1ZIKnGBAYle-sVD6v3P8jhA) |
-| ResNet-18-SR-SOP         |  9.0M  | 8256  |        40.32/18.94           | ------|
+| ResNet-18-SR-SOP         |  9.0M  | 8256  |        40.56/19.08           | [Google Drive](https://drive.google.com/file/d/1KCr0F8ajKOVvBLRDJL7YSc1hwLknmqKM/view?usp=sharing) \| [Baidu Yun](https://pan.baidu.com/s/1pZCbLn81WbUmGw4zFLFcBQ)|
 | GM-GAP-16-8 + ResNet-18  |  2.3M  | 512   |        42.25/19.46           | [Google Drive](https://drive.google.com/file/d/1LK3kx5jmS2kobuU4iWhsnrDVdpNCEqH-/view) \| [Baidu Yun](https://pan.baidu.com/s/1fmmT0haaqvG2uGRqoyp8Yw)|
 | GM-GAP-16-8 + WRN-36-2   |   8.7M | 512   |        35.97/14.41           | Coming soon!|
 | GM-SOP-16-8 + ResNet-18  |  10.3M | 8256  |        38.48/17.38           | [Google Drive](https://drive.google.com/open?id=1uSARyL4qqZtNsKP8FxLUlXmCkT8dLPso) \| [Baidu Yun](https://pan.baidu.com/s/1z_VllH0B2mn1OTWAb7gcGg)|
@@ -93,6 +93,7 @@ If you want to train model, please download the full dataset we provide above an
 
 - MD5 code: 
 <br>ResNet-18: cf9bcf22e416773052358870f7786e05
+<br>Resnet-18-SR-SOP: b4c60d7955d93e6145071a5157e2a2af
 <br>GM-GAP-16-8 + ResNet-18: f80738566ffe9cabb7a1e88ea6c79dcf
 <br>GM-SOP-16-8 + ResNet-18: 6f0db9de2cbe233278ba8acca67a6f78
 
