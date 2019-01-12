@@ -200,7 +200,8 @@ switch opts.modelType
     case 'ResNet18-GAP'
         lr =  0.75*[0.1 * ones(1,50), 0.01*ones(1,15), 0.001*ones(1,10)] ;
     case 'ResNet18-SR-SOP'
-        lr =  1 * [0.1 * ones(1,40), 0.01*ones(1,10), 0.001*ones(1,5), 1e-4 * ones(1,5)] ;
+        %lr =  1 * [0.1 * ones(1,40), 0.01*ones(1,10), 0.001*ones(1,5), 1e-4 * ones(1,5)] ;%error 41.0
+        lr =  1.5 * [0.1 * ones(1,40), 0.01*ones(1,10), 0.001*ones(1,5), 1e-4 * ones(1,5)] ;
 end
 folder = strcat(opts.modelType , '-LR_',num2str(lr(1)));
 
