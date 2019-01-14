@@ -102,8 +102,7 @@ Some models are trained with batchsize 150, which is different from batchsize 25
 
 ## Acknowledgments
 
-* The authors thank pioneering work: [MPN-COV](http://openaccess.thecvf.com/content_ICCV_2017/papers/Li_Is_Second-Order_Information_ICCV_2017_paper.pdf),
-[iSQRT-COV](http://openaccess.thecvf.com/content_cvpr_2018/papers/Li_Towards_Faster_Training_CVPR_2018_paper.pdf) and thank them for providing packaged high-efficiency code.
+* We thank the works as well as the accompanying  code  of [MPN-COV](https://github.com/jiangtaoxie/MPN-COV) and its fast version [iSQRT-COV](https://github.com/jiangtaoxie/fast-MPN-COV). 
 * We would like to thank MatConvNet team for developing MatConvNet toolbox.
 
 ## Contact Information
