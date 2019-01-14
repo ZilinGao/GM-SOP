@@ -319,7 +319,11 @@ lastAdded.var = name;
 
 if opts.dropout %add a dropout layer after fusion in case of overfitting
     name = 'dropout';
-    drop_rate = 0.4;
+       if opts.order == 1
+            drop_rate = 0.2;
+       else 
+            drop_rate = 0.4;
+       end
     net.addLayer(name,dagnn.DropOut('rate',drop_rate),...
         lastAdded.var,name);
     lastAdded.var = name;
@@ -373,7 +377,7 @@ folder = strcat(folder , '-dr0.4-LR_',num2str(lr(1)) , '_w_' , num2str(opts.loss
 net.meta.trainOpts.learningRate = lr ;
 net.meta.trainOpts.numEpochs = numel(lr) ;
 net.meta.trainOpts.momentum = 0.9 ;
-net.meta.trainOpts.batchSize = 256;
+net.meta.trainOpts.batchSize = 150;
 net.meta.trainOpts.numSubBatches = 1 ;
 net.meta.trainOpts.weightDecay = 0.0001 ;
 net.meta.opt = folder ;
