@@ -89,14 +89,16 @@ If you want to train model, please download the full dataset we provide above an
 | GM-GAP-16-8 + ResNet-18  |  2.3M  | 512   |        42.25/19.46           | [Google Drive](https://drive.google.com/file/d/1LK3kx5jmS2kobuU4iWhsnrDVdpNCEqH-/view) \| [Baidu Yun](https://pan.baidu.com/s/1fmmT0haaqvG2uGRqoyp8Yw)|
 | GM-GAP-16-8 + WRN-36-2   |   8.7M | 512   |        35.98/14.62           | [Google Drive](https://drive.google.com/file/d/16CBn_Mzji37rIWLUF_Zn4gro4KvJXhqP/view?usp=sharing) \| [Baidu Yun](https://pan.baidu.com/s/15Gz6AV7XKc_0TLqF1YbnDw)|
 | GM-SOP-16-8 + ResNet-18  |  10.3M | 8256  |        38.48/17.38           | [Google Drive](https://drive.google.com/open?id=1uSARyL4qqZtNsKP8FxLUlXmCkT8dLPso) \| [Baidu Yun](https://pan.baidu.com/s/1z_VllH0B2mn1OTWAb7gcGg)|
-| GM-SOP-16-8 + WRN-36-2   |  15.7M | 8256  |        32.33/12.35           | Coming soon!|
+| GM-SOP-16-8 + WRN-36-2   |  15.7M | 8256  |        32.71/12.44           | [Google Drive](https://drive.google.com/open?id=1f3YFIqOMAHI1A-OKVSK0S21N1XkVgRAf) \| [Baidu Yun](https://pan.baidu.com/s/1pMnCZcLNjDnGDWr1z0GVoA)|
 
+Some models are trained with batchsize 150, which is different from batchsize 256 in paper, resulting in 0.1~0.4% performance gap compared with paper reported. We will update it later.
 - MD5 code: 
 <br>ResNet-18: cf9bcf22e416773052358870f7786e05
 <br>Resnet-18-SR-SOP: b4c60d7955d93e6145071a5157e2a2af
 <br>GM-GAP-16-8 + ResNet-18: f80738566ffe9cabb7a1e88ea6c79dcf
 <br>GM-GAP-16-8 + WRN-36-2: ae26d1ccf77a568ceccaa878acc4d230
 <br>GM-SOP-16-8 + ResNet-18: 6f0db9de2cbe233278ba8acca67a6f78
+<br>GM-SOP-16-8 +WRN-36-2: d89ea02e557d087622eb1ea617d516be
 
 ## Acknowledgments
 
