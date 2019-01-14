@@ -91,7 +91,7 @@ If you want to train model, please download the full dataset we provide above an
 | GM-SOP-16-8 + ResNet-18  |  10.3M | 8256  |        38.48/17.38           | [Google Drive](https://drive.google.com/open?id=1uSARyL4qqZtNsKP8FxLUlXmCkT8dLPso) \| [Baidu Yun](https://pan.baidu.com/s/1z_VllH0B2mn1OTWAb7gcGg)|
 | GM-SOP-16-8 + WRN-36-2   |  15.7M | 8256  |        32.71/12.44           | [Google Drive](https://drive.google.com/open?id=1f3YFIqOMAHI1A-OKVSK0S21N1XkVgRAf) \| [Baidu Yun](https://pan.baidu.com/s/1pMnCZcLNjDnGDWr1z0GVoA)|
 
-Some models are trained with batchsize 150, which is different from batchsize 256 in paper, resulting in 0.2~0.5% performance gap compared with paper reported. We will update it later.
+Some models are trained with batchsize 150, which is different from batchsize 256 in paper, resulting in 0.1~0.4% performance gap compared with paper reported. We will update it later.
 - MD5 code: 
 <br>ResNet-18: cf9bcf22e416773052358870f7786e05
 <br>Resnet-18-SR-SOP: b4c60d7955d93e6145071a5157e2a2af
