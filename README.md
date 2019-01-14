@@ -4,6 +4,7 @@ This is an implementation of GM-SOP([paper](https://papers.nips.cc/paper/7403-gl
 [supplemental](https://papers.nips.cc/paper/7403-global-gated-mixture-of-second-order-pooling-for-improving-deep-convolutional-neural-networks-supplemental.zip))
 , created by [Zilin Gao](https://github.com/zilingao) and [Qilong Wang](https://csqlwang.github.io/homepage/).
 
+![GM-SOP_arch](GM-SOP_arch.png)
 ## Introduction
 
 In most of existing deep convolutional neural networks (CNNs) for classification,
