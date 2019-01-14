@@ -8,8 +8,8 @@ function [net, info] = cnn_imagenet64(varargin)
 run(fullfile(fileparts(mfilename('fullpath')), ...
     '..', '..', 'matlab', 'vl_setupnn.m')) ;
 
-opts.modelType = 'ResNet18-GM-GAP';
-% 'ResNet18-GM-GAP' 'ResNet18-GM-GOP' 'WRN-36-2-GM-GAP' 'WRN-36-2-GM-SOP'
+opts.modelType = 'ResNet18-GM-SOP';
+% 'ResNet18-GM-GAP' 'ResNet18-GM-SOP' 'WRN-36-2-GM-GAP' 'WRN-36-2-GM-SOP'
 % 'ResNet18-GAP'  'ResNet18-SR-SOP'
 opts.batchNormalization = true ;
 opts.weightInitMethod = 'gaussian' ;

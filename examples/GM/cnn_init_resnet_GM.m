@@ -225,8 +225,6 @@ switch opts.modelType
         CM_dim = 512;
     case 'ResNet18-GM-SOP'
         CM_dim = [256 128];
-    case 'ResNet50-GM-SOP'
-        CM_dim = [96 64];
 end
 
 lastAdded.depth = 2^(s+2);
@@ -364,8 +362,6 @@ switch opts.modelType
         lr =  0.75*[0.1 * ones(1,50), 0.01*ones(1,15), 0.001*ones(1,10)] ;
     case 'ResNet18-GM-SOP'
         lr =  1 * [0.1 * ones(1,40), 0.01*ones(1,10), 0.001*ones(1,5), 1e-4 * ones(1,5)] ;
-    case 'ResNet50-GM-SOP'
-        lr =  1 * [0.1 * ones(1,50), 0.01*ones(1,15), 0.001*ones(1,10)] ;
 end
 folder = strcat(folder , '-LR_',num2str(lr(1)) , '_w_' , num2str(opts.loss_w));
 
