@@ -73,6 +73,31 @@ RAM: 32G
 For the same reason, if you want to run with multiple GPUs, RAM should provide _dataset_space x GPU_num_ free space. 
 If the RAM is not allowed, you can also restore the data in form of image files in disk and read them from disk during each mini-batch(like most image reading process).
 
+## Code Components
+
+```
+
+├── examples
+│   ├── GM
+│   │   ├── cnn_imagenet64.m 
+│   │   ├── cnn_imagenet64_init_resnet.m
+│   │   ├── cnn_init_WRN_GM.m
+│   │   └── cnn_init_WRN_baseline.m
+│   │   ├── cnn_init_resnet_GM.m
+│   |   └── ....
+│   └── cnn_train_GM_dag.m
+└── matlab
+    │   ├── +dagnn
+    │   |      ├── Balance_loss.m
+    │   |      ├── CM_out.m
+    │   |      ├── H_x.m
+    │   |      ├── gating.m
+    │   |      └── ...
+    │   └── ...
+    └── ...
+
+```
+
 ## Start up
 
 - The code MUST be compiled by executing _matlab/vl_compilenn.m_, please see [here](http://www.vlfeat.org/matconvnet/install/) for details. The main function is _example/GM/cnn_imagenet64.m_ . 
@@ -92,7 +117,7 @@ If you want to train model, please download the full dataset we provide above an
 | GM-SOP-16-8 + ResNet-18  |  10.3M | 8256  |        38.48/17.38           | [Google Drive](https://drive.google.com/open?id=1uSARyL4qqZtNsKP8FxLUlXmCkT8dLPso) \| [Baidu Yun](https://pan.baidu.com/s/1z_VllH0B2mn1OTWAb7gcGg)|
 | GM-SOP-16-8 + WRN-36-2   |  15.7M | 8256  |        32.71/12.44           | [Google Drive](https://drive.google.com/open?id=1f3YFIqOMAHI1A-OKVSK0S21N1XkVgRAf) \| [Baidu Yun](https://pan.baidu.com/s/1pMnCZcLNjDnGDWr1z0GVoA)|
 
-Some models are trained with batchsize 150, which is different from batchsize 256 in paper, resulting in 0.1~0.4% performance gap compared with paper reported. We will update it later.
+Some models are trained with batchsize 150, which is different from batchsize 256 in paper, resulting in 0.1~0.4% performance gap compared with paper reported. 
 - MD5 code: 
 <br>ResNet-18: cf9bcf22e416773052358870f7786e05
 <br>Resnet-18-SR-SOP: b4c60d7955d93e6145071a5157e2a2af
